@@ -1085,11 +1085,11 @@ window.doUpload = async function() {
 
   try {
     const blob      = await compressImage(pickedFile, 1200, 0.82);
-    const publicId  = `wedding_bingo/${player}_${activeCellIdx}`;
-    const form      = new FormData();
+    const form = new FormData();
     form.append('file', blob);
     form.append('upload_preset', CLOUD_PRESET);
-    form.append('public_id', publicId);
+    form.append('folder', 'wedding_bingo');
+    form.append('public_id', `${player}_${activeCellIdx}`);
 
     // Fake progress (fetch doesn't expose upload progress easily)
     let prog = 0;
